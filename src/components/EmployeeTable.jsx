@@ -6,7 +6,7 @@ const EmployeeTable = ({ employees, currentPage, totalPages, handlePrev, handleN
       <h2>Employee Data Table</h2>
       <table border="1" width="100%">
         <thead>
-          <tr style={{ backgroundColor: "#008066", color: "white" }}>
+          <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>

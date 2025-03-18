@@ -27,23 +27,19 @@ const App = () => {
     fetchData();
   }, []);
 
-  // Pagination Logic
+  // Calculate total pages
   const totalPages = Math.ceil(employees.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedData = employees.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   // Handle Previous Button Click
   const handlePrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+    setCurrentPage(prevPage => Math.max(prevPage - 1, 1)); // Prevent going below 1
   };
 
   // Handle Next Button Click
   const handleNext = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
+    setCurrentPage(prevPage => Math.min(prevPage + 1, totalPages)); // Prevent exceeding total pages
   };
 
   return (
